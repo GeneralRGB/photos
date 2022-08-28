@@ -2,7 +2,10 @@ import React from 'react';
 
 export const Collection = ({ name, images, setDetailedView }) => {
     return (
-        <div className="collection" onClick={() => setDetailedView(images)}>
+        <div className="collection" onClick={() => {
+            setDetailedView(images);
+            window.scrollTo(0, 0);
+        }}>
             <img className="collection__big" src={images[0]} alt="Item" />
             <div className="collection__bottom">
                 <img className="collection__mini" src={images[1]} alt="Item" />
