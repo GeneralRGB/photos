@@ -62,7 +62,10 @@ function App() {
             <li
               key={el.name}
               className={categoryId === index ? "active" : ""}
-              onClick={() => setCategoryId(index)}
+              onClick={() => {
+                setCategoryId(index);
+                setPage(1);
+              }}
             >
               {el.name}
             </li>
