@@ -18,6 +18,7 @@ function App() {
   const [page, setPage] = React.useState(1);
   const [searchValue, setSearchValue] = React.useState("");
   const [collections, setCollections] = React.useState([]);
+  const [pagesAmount, setPagesAmount] = React.useState(0);
 
   const [isDetailedViewOpened, setDetailedView] = React.useState(false);
   const [detailedPhotos, setDetailedPhotos] = React.useState([]);
@@ -26,6 +27,12 @@ function App() {
     setIsLoading(true);
 
     const category = categoryId ? `category=${categoryId}` : "";
+
+    fetch(
+      `https://6307af893a2114bac76922d9.mockapi.io/photos/photos?${category}`
+    )
+      .then((res) => res.json())
+      .then((data) => setPagesAmount(Math.ceil(data.length / 3)));
 
     fetch(
       `https://6307af893a2114bac76922d9.mockapi.io/photos/photos?page=${page}&limit=3&${category}`
@@ -103,7 +110,7 @@ function App() {
 
       {!isDetailedViewOpened && (
         <ul className="pagination">
-          {[...Array(4)].map((_, i) => {
+          {[...Array(pagesAmount)].map((_, i) => {
             const newPage = ++i;
             return (
               <li
