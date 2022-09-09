@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap");
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #eff0f1;
@@ -17,10 +17,16 @@ body {
   padding: 50px;
   width: 100%;
   max-width: 1200px;
+
+  .go-back {
+    color: #216abe;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
 
 h1 {
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
 }
 
 .tags {
@@ -80,7 +86,7 @@ h1 {
     margin: 0;
     margin-top: 15px;
     font-size: 20px;
-    font-family: 'Merriweather', serif;
+    font-family: "Merriweather", serif;
   }
 
   &:hover {
@@ -120,6 +126,8 @@ h1 {
   top: 5%;
   left: 5%;
   right: 5%;
+  height: 90vh;
+  overflow-y: scroll;
 
   background-color: #fff;
   padding: 30px;
@@ -128,23 +136,33 @@ h1 {
 
   .close-btn {
     cursor: pointer;
+    position: fixed;
   }
 
-  .image-detailed{
+  .image-detailed {
     display: block;
     margin: auto;
     border-radius: 15px;
     max-width: 75%;
 
-    &:not(:last-child)  {
+    &:not(:last-child) {
       margin-bottom: 15px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .image-detailed {
+      max-width: 90%;
+    }
+    .close-btn {
+      left: 35px;
     }
   }
 }
 
 .top {
   display: flex;
-  align-items:baseline;
+  align-items: baseline;
   flex-wrap: wrap;
 }
 
